@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/strapi": "^1.9.2",
+    "@types/node": "^18",
+    "nuxt": "^3.5.2"
+  },
+  "dependencies": {
+    "@nuxt/image-edge": "^1.0.0-28094330.102af81",
+    "@strapi/strapi": "^4.10.7"
+  },
+  "resolutions": {
+    "@nuxt/kit": "3.0.0-rc.13"
+  }
+}

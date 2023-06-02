@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "work_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work-image.work-image",
+      "mappedBy": "work"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "visual",
+        "sound",
+        "participation"
+      ],
+      "required": true
+    }
+  }
+}
