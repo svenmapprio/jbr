@@ -1,3 +1,4 @@
+process.env.STRAPI_URL = 'https://jbr-portfolio-strapi-fljcfjbucq-ew.a.run.app';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: ['@nuxtjs/strapi', '@nuxt/image-edge'],
