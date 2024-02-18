@@ -1,14 +1,12 @@
 <script setup lang="ts">
-    import { Work } from '~/utils/types';
+    import type { WorkDetails } from '~/helpers/client/types';
 
-    const props = defineProps<{type: Work['type']}>();
-
-    const {data} = await useWorks(props.type);
+    defineProps<{works: WorkDetails[]}>();
 </script>
 
 <template>
     <div class="grid">
-        <WorkGridItem v-for="work in data" :key="work.id" :id="work.id" :work="work.attributes" />
+        <WorkGridItem v-for="work in works" :key="work.id" :id="work.id" :work="work" />
     </div>
 </template>
 

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-    const {image, size} = defineProps<{image: any, size: 'small' | 'medium' | 'large'}>();
+    const {url} = defineProps<{url: string}>();
 
-    let url = image?.attributes.formats[size]?.url;
-    const sizes = ['small', 'medium', 'large'];
-    let index = sizes.length - 1;
-    while(!url && index >= 0){
-        url = image?.attributes.formats[sizes[index--]]?.url;
-    }
+    // let url = image?.attributes.formats[size]?.url;
+    // const sizes = ['small', 'medium', 'large'];
+    // let index = sizes.length - 1;
+    // while(!url && index >= 0){
+    //     url = image?.attributes.formats[sizes[index--]]?.url;
+    // }
 
-    if(!url) url = image?.attributes.url;
+    // if(!url) url = image?.attributes.url;
 </script>
 
 <template>

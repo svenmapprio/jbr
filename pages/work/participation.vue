@@ -1,3 +1,6 @@
+<script setup lang="ts">
+    const {data: works} = useFetch("/api/work/participation");
+</script>
 <template>
-    <WorkGrid type="participation" />
+    <WorkGrid v-if="works" :works="works" />
 </template>

@@ -1,17 +1,20 @@
 <script setup lang="ts">
-    import { WorkImage } from '~/utils/types';
+    import type { WorkDetails } from '~/helpers/client/types';
 
-    const { workImage } = defineProps<{workImage: WorkImage}>();
-    const images = workImage.image.data;
-    const direction: 'row' | 'column' = workImage.textPosition === 'top' || workImage.textPosition === 'bottom' ? 'row' : 'column';
+    
+
+
+    const { section } = defineProps<{section: WorkDetails["sections"][number]}>();
+    
+    const direction: 'row' | 'column' = section.textPosition === 'top' || section.textPosition === 'bottom' ? 'row' : 'column';
 </script>
 
 <template>
-    <div :class="`container ${workImage.textPosition}`">
+    <div :class="`container ${section.textPosition}`">
         <div class="image">
-            <WorkImageGrid :images="images" :direction="direction" />
+            <WorkImageGrid :images="section.images" :direction="direction" />
         </div>
-        <div class="description"><WorkImageDescription :text="workImage.description" /></div>
+        <div class="description"><WorkImageDescription :text="section.description" /></div>
     </div>
 </template>
 

@@ -5,12 +5,6 @@
                 <div>
                     Johan Buskov Romme
                 </div>
-                <div>
-                    +45 21 67 41 10
-                </div>
-                <div>
-                    asulaart@gmail.com
-                </div>
             </Column>
             <MenuRow>
                 <MenuLink to="/">Work</MenuLink>

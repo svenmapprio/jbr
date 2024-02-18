@@ -1,10 +1,38 @@
 <script setup lang="ts">
-    const {images, direction} = defineProps<{images: any[], direction: 'row' | 'column'}>();
+import type { WorkDetails } from '~/helpers/client/types';
+
+    const {images, direction} = defineProps<{images: WorkDetails["sections"][number]["images"], direction: 'row' | 'column'}>();
+
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    import 'photoswipe/style.css';
+import type { SlideData } from 'photoswipe';
+
+    const lb = ref<PhotoSwipeLightbox>();
+
+    onMounted(() => {
+        lb.value = new PhotoSwipeLightbox({
+            dataSource: images.map(image => ({src: image.url, width: image.width, height: image.height, alt: image.id.toString()})) as SlideData[],
+            pswpModule: () => import('photoswipe'),
+        });
+
+        lb.value.init();
+    });
+
+    onUnmounted(() => {
+        if (lb.value) {
+            lb.value.destroy();
+            lb.value = undefined;
+        }
+    });
+
+    const handleClick = (index: number) => {
+        lb.value?.loadAndOpen(index);
+    }
 </script>
 
 <template>
     <div :class="`grid ${direction}`">
-        <WorkImageGridItem v-for="image in images" :image="image" :key="image.id" />
+        <WorkImageGridItem v-for="(image, index) in images" :image="image" :key="image.id" @click="() => handleClick(index)" />
     </div>
 </template>
 

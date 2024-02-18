@@ -1,19 +1,17 @@
 <script setup lang="ts">
-    import { Work } from '~/utils/types';
+    import type { WorkDetails } from '~/helpers/client/types';
 
-    const {work, id} = defineProps<{id: number, work: Work}>();
+    const props = defineProps<{id: number, work: WorkDetails}>();
     
-    const path = `/work/${id}`;
+    const path = computed(() => `/work/${props.id}`);
 
-    const workImageRes = work.work_images.data[0];
-    const workImage = workImageRes?.attributes;
-    const image = workImage?.image.data[0];
+    const url = computed(() => props.work.sections[0]?.images[0]?.url);
 </script>
 
 <template>
     <NuxtLink :to="path">
         <div class="grid-view">
-            <StrapiImage class="poster" :image="image" v-if="!!image" size="medium" />
+            <StrapiImage v-if="!!url" class="poster" :url="url" size="medium" />
             <div class="label">
                 {{ work.name }}
             </div>

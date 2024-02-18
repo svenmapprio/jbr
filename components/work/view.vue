@@ -1,15 +1,17 @@
 <script setup lang="ts">
-    import { Work } from '~/utils/types';
+    import type { WorkDetails } from '~/helpers/client/types';
 
-    const { work } = defineProps<{work: Work}>();
+    interface Props {
+        work: WorkDetails;
+    }
 
-    const workImages = work.work_images?.data ?? [];
+    defineProps<Props>();
 </script>
 
 <template>
     <Column class="container">
-        <WorkTitle :text="work.name"/>
-        <WorkImageView v-for="workImage in workImages" :work-image="workImage.attributes" :key="workImage.id" />
+        <WorkTitle :text="work.name ?? ''"/>
+        <WorkImageView v-for="workImage in work.sections" :section="workImage" :key="workImage.id" />
     </Column>
 </template>
 
