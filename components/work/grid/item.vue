@@ -11,10 +11,11 @@
 <template>
     <NuxtLink :to="path">
         <div class="grid-view">
-            <StrapiImage v-if="!!url" class="poster" :url="url" size="medium" />
-            <div class="label">
-                {{ work.name }}
+            <div class="poster" >
+                <StrapiImage v-if="!!url" :url="url" size="medium"/>
             </div>
+            
+            <div class="link"> {{ work.name }} </div>
         </div>
     </NuxtLink>
 </template>
@@ -22,26 +23,27 @@
 <style scoped>
     .grid-view {
         position: relative;
-        aspect-ratio: 1;
-        min-height: 0;
-        background-color: grey;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-
-    .grid-view:hover .label{
-        opacity: 1;
-    }
-
-    .label{
-        opacity: 0;
-        z-index: 1;
+        gap: 5px;
+        text-decoration: none !important;
     }
 
     .poster {
-        position: absolute;
         width: 100%;
-        height: 100%;
+        aspect-ratio: 1;
+        background-color: rgb(220,220,220);
+    }
+
+    a {
+        all: unset;
+        cursor: pointer;
+        transition: opacity 150ms;
+    }
+
+    a:not(:hover) div.link{
+        opacity: 0.5;
     }
 </style>

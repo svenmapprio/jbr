@@ -1,9 +1,6 @@
 <script setup lang="ts">
     import type { WorkDetails } from '~/helpers/client/types';
 
-    
-
-
     const { section } = defineProps<{section: WorkDetails["sections"][number]}>();
     
     const direction: 'row' | 'column' = section.textPosition === 'top' || section.textPosition === 'bottom' ? 'row' : 'column';
@@ -20,27 +17,24 @@
 
 <style scoped>
     .container {
-        display: grid;
+        display: flex;
+        padding-bottom:50px;
     }
 
     .container.top{
-        grid-template-areas: "description" "image";
-        grid-template-rows: auto auto;
+        flex-direction: column-reverse;
     }
 
     .container.bottom{
-        grid-template-areas: "image" "description";
-        grid-template-rows: auto auto;
+        flex-direction: column;
     }
 
     .container.left{
-        grid-template-areas: "description image";
-        grid-template-columns: 1fr minmax(auto, 300px);
+        flex-direction: row-reverse;
     }
 
     .container.right{
-        grid-template-areas: "image description";
-        grid-template-columns: minmax(auto, 300px) 1fr;
+        flex-direction: row;
     }
 
     .left > .image, .right > .image{

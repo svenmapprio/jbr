@@ -1,9 +1,13 @@
 <script setup lang="ts">
-    const {text} = defineProps<{text: string | null}>();
+import { replaceTextLinks } from '~/helpers/common';
+
+const props = defineProps<{text: string | null}>();
+
+const replacedText = computed(() => replaceTextLinks(props.text ?? ""));
 </script>
 
 <template>
-    <p>{{ text }}</p>
+    <p v-html="replacedText" />
 </template>
 
 <style scoped>
@@ -12,5 +16,6 @@
         font-size: 17px;
         font-weight: 300;
         line-height: 1.3;
+        white-space: pre-line;
     }
 </style>

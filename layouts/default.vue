@@ -3,14 +3,9 @@
         <Column class="main">
             <Column class="info">
                 <div>
-                    Johan Buskov Romme
+                    <MenuLink to="/">Johan Buskov Romme</MenuLink> - <MenuLink to="/info">Info</MenuLink>
                 </div>
             </Column>
-            <MenuRow>
-                <MenuLink to="/">Work</MenuLink>
-                <MenuLink to="/cv">CV</MenuLink>
-                <MenuLink to="/publications">Publications</MenuLink>
-            </MenuRow>
             <Column class="page">
                 <slot />
             </Column>
@@ -22,7 +17,9 @@
     body{
         margin: 0;
         padding: 0;
+        font-family: "Roboto Condensed";
     }
+
     .main{
         display: flex;
         align-items: center;

@@ -1,7 +1,12 @@
 // process.env.STRAPI_URL = "https://jbr-portfolio-strapi-fljcfjbucq-ew.a.run.app";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/strapi", "@nuxt/image-edge", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/strapi",
+    "@nuxt/image-edge",
+    "@nuxt/image",
+    "@nuxtjs/google-fonts",
+  ],
   //@ts-ignore
   runtimeConfig: {
     strapi: {
@@ -24,5 +29,11 @@ export default defineNuxtConfig({
     version: "v4",
     cookie: {},
     cookieName: "strapi_jwt",
+  },
+  googleFonts: {
+    prefetch: true,
+    families: {
+      "Roboto+Condensed": true,
+    },
   },
 });

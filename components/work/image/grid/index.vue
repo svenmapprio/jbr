@@ -31,12 +31,22 @@ import type { SlideData } from 'photoswipe';
 </script>
 
 <template>
-    <div :class="`grid ${direction}`">
+    <div :class="`flex ${direction}`">
         <WorkImageGridItem v-for="(image, index) in images" :image="image" :key="image.id" @click="() => handleClick(index)" />
     </div>
 </template>
 
 <style scoped>
+    .flex{
+        display: flex;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    .flex.column{
+        flex-direction: column;
+    }
+
     .grid{
         display: grid;
         gap: 30px;
@@ -53,6 +63,10 @@ import type { SlideData } from 'photoswipe';
     @media only screen and (max-width: 600px) {
         .grid.row, .grid.column {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .flex.row, .flex.column {
+            flex-direction: column;
         }
     }
 </style>
