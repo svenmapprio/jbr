@@ -11,7 +11,7 @@
 <template>
     <Column class="container">
         <WorkTitle :text="work.name ?? ''"/>
-        <WorkDescription :text="work.description ?? ''"/>
+        <WorkDescription v-if="work.description" :text="work.description"/>
         <WorkImageView v-for="workImage in work.sections" :section="workImage" :key="workImage.id" />
     </Column>
 </template>
