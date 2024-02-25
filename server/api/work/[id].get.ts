@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
     .select((s) => [
       "id",
       "name",
+      "description",
       jsonArrayFrom(
         s
           .selectFrom("workImagesWorkLinks as wiw")
@@ -35,6 +36,7 @@ export default defineEventHandler(async (event) => {
                 .select(["f.id", "f.url", "f.formats", "f.width", "f.height"])
                 .whereRef("frm.relatedId", "=", "wi.id")
                 .where("frm.relatedType", "=", "api::work-image.work-image")
+                .orderBy("frm.order")
             ).as("images"),
           ])
           .whereRef("wiw.workId", "=", "w.id")

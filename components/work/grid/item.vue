@@ -5,7 +5,7 @@
     
     const path = computed(() => `/work/${props.id}`);
 
-    const url = computed(() => props.work.sections[0]?.images[0]?.url);
+    const url = computed(() => props.work.sections.find(section => !!section.images.length)?.images[0]?.url);
 </script>
 
 <template>
