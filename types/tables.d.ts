@@ -24,6 +24,7 @@ export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
 export interface AdminPermissions {
   action: string | null;
+  actionParameters: Json | null;
   conditions: Json | null;
   createdAt: Timestamp | null;
   createdById: number | null;
@@ -180,6 +181,38 @@ export interface StrapiMigrations {
   time: Timestamp | null;
 }
 
+export interface StrapiReleaseActions {
+  contentType: string | null;
+  createdAt: Timestamp | null;
+  createdById: number | null;
+  id: Generated<number>;
+  locale: string | null;
+  targetId: number | null;
+  targetType: string | null;
+  type: string | null;
+  updatedAt: Timestamp | null;
+  updatedById: number | null;
+}
+
+export interface StrapiReleaseActionsReleaseLinks {
+  id: Generated<number>;
+  releaseActionId: number | null;
+  releaseActionOrder: number | null;
+  releaseId: number | null;
+}
+
+export interface StrapiReleases {
+  createdAt: Timestamp | null;
+  createdById: number | null;
+  id: Generated<number>;
+  name: string | null;
+  releasedAt: Timestamp | null;
+  scheduledAt: Timestamp | null;
+  timezone: string | null;
+  updatedAt: Timestamp | null;
+  updatedById: number | null;
+}
+
 export interface StrapiTransferTokenPermissions {
   action: string | null;
   createdAt: Timestamp | null;
@@ -308,6 +341,7 @@ export interface WorkImagesWorkLinks {
 export interface Works {
   createdAt: Timestamp | null;
   createdById: number | null;
+  description: string | null;
   id: Generated<number>;
   name: string | null;
   publishedAt: Timestamp | null;
@@ -332,6 +366,9 @@ export interface DB {
   strapiCoreStoreSettings: StrapiCoreStoreSettings;
   strapiDatabaseSchema: StrapiDatabaseSchema;
   strapiMigrations: StrapiMigrations;
+  strapiReleaseActions: StrapiReleaseActions;
+  strapiReleaseActionsReleaseLinks: StrapiReleaseActionsReleaseLinks;
+  strapiReleases: StrapiReleases;
   strapiTransferTokenPermissions: StrapiTransferTokenPermissions;
   strapiTransferTokenPermissionsTokenLinks: StrapiTransferTokenPermissionsTokenLinks;
   strapiTransferTokens: StrapiTransferTokens;

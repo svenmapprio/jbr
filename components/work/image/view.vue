@@ -8,7 +8,7 @@
 
 <template>
     <div :class="`container ${section.textPosition}`">
-        <div class="image">
+        <div class="image" v-if="!!section.images?.length">
             <WorkImageGrid :images="section.images" :direction="direction" />
         </div>
         <div class="description"><WorkImageDescription :text="section.description" /></div>

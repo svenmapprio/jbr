@@ -11,6 +11,7 @@
 <template>
     <Column class="container">
         <WorkTitle :text="work.name ?? ''"/>
+        <WorkDescription :text="work.description ?? ''"/>
         <WorkImageView v-for="workImage in work.sections" :section="workImage" :key="workImage.id" />
     </Column>
 </template>

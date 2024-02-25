@@ -803,6 +803,7 @@ export interface ApiWorkWork extends Schema.CollectionType {
     >;
     type: Attribute.Enumeration<['visual', 'sound', 'participation']> &
       Attribute.Required;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

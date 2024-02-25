@@ -1,6 +1,7 @@
 export type WorkDetails = {
   id: number;
   name: string | null;
+  description: string | null;
   sections: {
     id: number;
     description: string | null;

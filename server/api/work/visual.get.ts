@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
     .select((s) => [
       "id",
       "name",
+      "description",
       jsonArrayFrom(
         s
           .selectFrom("workImagesWorkLinks as wiw")
