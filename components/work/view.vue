@@ -19,5 +19,6 @@
     .container{
         width: 100%;
         gap: 20px;
+        padding-bottom:50px;
     }
 </style>

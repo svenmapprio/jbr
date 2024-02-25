@@ -826,7 +826,7 @@ export interface ApiWorkImageWorkImage extends Schema.CollectionType {
   };
   attributes: {
     description: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
     textPosition: Attribute.Enumeration<['top', 'bottom', 'left', 'right']> &
       Attribute.Required &
       Attribute.DefaultTo<'bottom'>;

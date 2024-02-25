@@ -18,7 +18,6 @@
 <style scoped>
     .container {
         display: flex;
-        padding-bottom:50px;
     }
 
     .container.top{
