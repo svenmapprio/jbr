@@ -22,6 +22,19 @@ export type Numeric = ColumnType<string, number | string, number | string>;
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
+export interface Activities {
+  createdAt: Timestamp | null;
+  createdById: number | null;
+  from: Timestamp | null;
+  id: Generated<number>;
+  publishedAt: Timestamp | null;
+  text: string | null;
+  to: Timestamp | null;
+  type: string | null;
+  updatedAt: Timestamp | null;
+  updatedById: number | null;
+}
+
 export interface AdminPermissions {
   action: string | null;
   actionParameters: Json | null;
@@ -124,6 +137,21 @@ export interface I18nLocale {
   createdById: number | null;
   id: Generated<number>;
   name: string | null;
+  updatedAt: Timestamp | null;
+  updatedById: number | null;
+}
+
+export interface Personals {
+  address: string | null;
+  bio: string | null;
+  createdAt: Timestamp | null;
+  createdById: number | null;
+  email: string | null;
+  firstName: string | null;
+  id: Generated<number>;
+  lastName: string | null;
+  phone: string | null;
+  publishedAt: Timestamp | null;
   updatedAt: Timestamp | null;
   updatedById: number | null;
 }
@@ -320,6 +348,17 @@ export interface UpUsersRoleLinks {
   userOrder: number | null;
 }
 
+export interface WebLinks {
+  createdAt: Timestamp | null;
+  createdById: number | null;
+  id: Generated<number>;
+  label: string | null;
+  link: string | null;
+  publishedAt: Timestamp | null;
+  updatedAt: Timestamp | null;
+  updatedById: number | null;
+}
+
 export interface WorkImages {
   createdAt: Timestamp | null;
   createdById: number | null;
@@ -351,6 +390,7 @@ export interface Works {
 }
 
 export interface DB {
+  activities: Activities;
   adminPermissions: AdminPermissions;
   adminPermissionsRoleLinks: AdminPermissionsRoleLinks;
   adminRoles: AdminRoles;
@@ -360,6 +400,7 @@ export interface DB {
   filesFolderLinks: FilesFolderLinks;
   filesRelatedMorphs: FilesRelatedMorphs;
   i18nLocale: I18nLocale;
+  personals: Personals;
   strapiApiTokenPermissions: StrapiApiTokenPermissions;
   strapiApiTokenPermissionsTokenLinks: StrapiApiTokenPermissionsTokenLinks;
   strapiApiTokens: StrapiApiTokens;
@@ -380,6 +421,7 @@ export interface DB {
   upRoles: UpRoles;
   upUsers: UpUsers;
   upUsersRoleLinks: UpUsersRoleLinks;
+  webLinks: WebLinks;
   workImages: WorkImages;
   workImagesWorkLinks: WorkImagesWorkLinks;
   works: Works;
