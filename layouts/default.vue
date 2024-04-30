@@ -1,5 +1,9 @@
 <template>
-    <Column class="container">
+    <Column :style="{height: '100dvh', width: '100dvw', alignItems: 'center', justifyContent: 'center'}">
+        <p>This page is currently being built</p>
+        <p>In the meantime feel free to reach out to me <a href="mailto:johanbuskov@gmail.com">by email</a></p>
+    </Column>
+    <!-- <Column class="container">
         <Column class="main">
             <Column class="info">
                 <div>
@@ -10,7 +14,7 @@
                 <slot />
             </Column>
         </Column>
-    </Column>
+    </Column> -->
 </template>
 
 <style>
